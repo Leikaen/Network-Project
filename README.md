@@ -113,3 +113,19 @@ Tests pour la construction de tunnels dynamiques entre deux spoke :
 -	     1 10.136.51.2         172.16.48.4    UP 00:02:37   DT2
 -	Spoke1#
 
+Voici un show ip nhrp shortcut qui nous montre le fonctionnement de la phase 3 et la communication qui ne passe plus par le hub mais directement au spoke :
+
+Spoke1#sh ip nh
+Spoke1#sh ip nhrp sh
+Spoke1#sh ip nhrp shortcut
+172.16.48.4/32 via 172.16.48.4
+   Tunnel1 created 00:07:03, expire 00:02:56
+   Type: dynamic, Flags: router nhop rib nho
+   NBMA address: 10.136.51.2
+192.168.3.0/24 via 172.16.48.4
+   Tunnel1 created 00:07:03, expire 00:02:56
+   Type: dynamic, Flags: router rib nho
+   NBMA address: 10.136.51.2
+Spoke1#
+
+
